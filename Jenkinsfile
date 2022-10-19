@@ -16,7 +16,7 @@ pipeline{
         stage("Maven testing stage "){
             steps{
                  sh "mvn --version"
-                 mail bcc: '', body: 'checking maven version stage', cc: '', from: 'rpawar@aurusinc.com', replyTo: 'rpawar@aurusinc.com', subject: 'Testing  maven version', to: 'rpawar@aurusinc.com'
+                 mail bcc: '', body: 'Checking mail system', cc: 'rpawar@aurusinc.com', from: '', replyTo: '', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS! ', to: 'rpawar@aurusinc.com'
                 echo "========testing A========"
             }
             
@@ -58,7 +58,7 @@ pipeline{
                 // sh ''' 
                 //  mvn install 
                 // '''
-                mail bcc: '', body: 'project building started', cc: '', from: 'rpawar@aurusinc.com', replyTo: 'rpawar@aurusinc.com', subject: 'Testing  build stage', to: 'rpawar@aurusinc.com'
+                
                 echo "========building A========"
             }
         }
