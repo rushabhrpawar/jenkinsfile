@@ -30,10 +30,11 @@ pipeline {
             }
         }
         stage("asking permission"){
-            steps{
                 input {
                     message "can we start build"
                     ok "yes we can start"
+            steps{
+                echo "Successfully completed"
                 }
             }
         }
