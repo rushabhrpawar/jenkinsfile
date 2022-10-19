@@ -33,10 +33,10 @@ pipeline {
                 input {
                     message "can we start build"
                     ok "yes we can start"
+                }
             steps{
                 echo "Successfully completed"
                 }
-            }
         }
         stage("mvn build stage"){
             steps{
