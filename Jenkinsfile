@@ -23,7 +23,6 @@ pipeline {
         stage("mvn clean compile and test stage"){
             steps{
                 sh '''
-                cd aurus-aesdk-service-enterprise/
                 mvn clean 
                 mvn compile 
                 mvn test 
