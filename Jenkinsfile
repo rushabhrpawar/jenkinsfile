@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage("checking version of java and maven via commnad line "){
             steps{
-                emailext attachLog: true, body: 'Build has been started by user ', recipientProviders: [developers()], subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
+                emailext attachLog: true, body: 'Build has been started by user ', recipientProviders: [developers()], replyTo: 'rpawar@aurusinc.com', subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
                 sh '''
                 mvn -version 
                 java -version
