@@ -16,7 +16,7 @@ pipeline{
         stage("Maven testing stage "){
             steps{
                  sh "mvn --version"
-                 mail bcc: '', body: 'Checking mail system', cc: 'rpawar@aurusinc.com', from: '', replyTo: '', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS! ', to: 'rpawar@aurusinc.com'
+                 emailext body: 'Checking mail by rushabh pawar to write jenkinsfile ', recipientProviders: [developers()], subject: '$BUILD_NUMBER - $BUILD_STATUS! Testing mail by RSP', to: 'rpawar@aurusinc.com'
                 echo "========testing A========"
             }
             
