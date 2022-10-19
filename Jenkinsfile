@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage("checking version of java and maven via commnad line "){
             steps{
+                emailext attachLog: true, body: 'Build has been started by user ', recipientProviders: [developers()], subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
                 sh '''
                 mvn -version 
                 java -version
@@ -30,19 +31,21 @@ pipeline {
             }
         }
         stage("asking permission"){
-                input {
-                    message "can we start build"
-                    ok "yes we can start"
-                }
+                
             steps{
                 echo "Successfully completed"
                 }
         }
         stage("mvn build stage"){
+            input {
+                    message "can we start build"
+                    ok "yes we can start"
+                }
             steps{
                 sh '''
                 mvn package
                 '''
+                emailext attachLog: true, attachmentsPattern: '**/target/aurus-aesdk-service*', body: 'Build has been started by user ', postsendScript: '**/target/aurus-aesdk-service*', recipientProviders: [developers()], subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
             }
         }
     }
