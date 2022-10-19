@@ -39,7 +39,7 @@ pipeline {
                 sh '''
                 mvn package
                 '''
-                emailext attachLog: true, attachmentsPattern: '**target/aurus-aesdk-service*', body: 'Build has been successfully completed  ', postsendScript: '**target/aurus-aesdk-service*', recipientProviders: [developers()], subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
+                emailext attachLog: true, attachmentsPattern: '**target/aurus-aesdk-service*', body: 'Build has been completed ', replyTo: 'rpawar@aurusinc.com', subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
             }
         }
     }
