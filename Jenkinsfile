@@ -41,7 +41,7 @@ pipeline {
         stage("mvn build stage"){
             steps{
                 sh '''
-                mvn build 
+                mvn package
                 '''
             }
         }
