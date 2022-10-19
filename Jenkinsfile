@@ -29,5 +29,20 @@ pipeline {
                 '''
             }
         }
+        stage("asking permission"){
+            steps{
+                input {
+                    message "can we start build"
+                    ok "yes we can start"
+                }
+            }
+        }
+        stage("mvn build stage"){
+            stage{
+                sh '''
+                mvn build 
+                '''
+            }
+        }
     }
 }
