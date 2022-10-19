@@ -16,8 +16,7 @@ pipeline{
         stage("Maven testing stage "){
             steps{
                  sh "mvn --version"
-                 mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Testing  maven version  ', to: 'rpawar@aurusinc.com, rushabhpawar01@gmail.com'
-                //  sh "mvn clean"
+                 mail bcc: '', body: 'checking maven version stage', cc: '', from: 'rpawar@aurusinc.com', replyTo: 'rpawar@aurusinc.com', subject: 'Testing  maven version', to: 'rpawar@aurusinc.com'
                 echo "========testing A========"
             }
             
@@ -59,7 +58,7 @@ pipeline{
                 // sh ''' 
                 //  mvn install 
                 // '''
-                mail bcc: '', body: '', cc: '', from: 'rpawar@aurusinc.com', replyTo: 'rpawar@aurusinc.com', subject: 'Testing  build stage', to: 'rpawar@aurusinc.com'
+                mail bcc: '', body: 'project building started', cc: '', from: 'rpawar@aurusinc.com', replyTo: 'rpawar@aurusinc.com', subject: 'Testing  build stage', to: 'rpawar@aurusinc.com'
                 echo "========building A========"
             }
         }
