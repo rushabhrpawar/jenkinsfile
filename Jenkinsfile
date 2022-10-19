@@ -17,7 +17,7 @@ pipeline {
         }
         stage("Cloning the git project "){
             steps{
-                git branch: '*/jan-feb-2020', url: 'aurusgit@10.200.10.88:products/Java-AESDK/aurus-aesdk-service-enterprise/aurus-aesdk-service-enterprise.git'
+                git branch: 'jan-feb-2020', url: 'aurusgit@10.200.10.88:products/Java-AESDK/aurus-aesdk-service-enterprise/aurus-aesdk-service-enterprise.git'
             }
         }
         stage("mvn clean compile and test stage"){
