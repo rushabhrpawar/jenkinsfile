@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Cloning the git project "){
             steps{
-                git branch: 'jan-feb-2020', url: 'aurusgit@10.200.10.88:products/Java-AESDK/aurus-aesdk-service-enterprise/aurus-aesdk-service-enterprise.git'
+                git branch: 'jan-feb-2020', url: ''
             }
         }
         stage("mvn clean compile and test stage"){
@@ -39,7 +39,7 @@ pipeline {
                 sh '''
                 mvn package
                 '''
-                emailext attachLog: true, attachmentsPattern: '**target/aurus-aesdk-service*', body: 'Build has been completed ', replyTo: 'rpawar@aurusinc.com', subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
+                emailext attachLog: true, attachmentsPattern: '**target/aurus-java-service*', body: 'Build has been completed ', replyTo: 'rpawar@aurusinc.com', subject: '$BUILD_NUMBER - $BUILD_STATUS! Building started ', to: 'rpawar@aurusinc.com'
             }
         }
     }
